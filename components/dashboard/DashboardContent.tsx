@@ -80,8 +80,8 @@ export default function DashboardContent() {
 
     if (loading) return <div className={styles.loader}>Analyzing Program Details...</div>;
 
-    if (isSimulating) {
-        return <SimulationRoom questions={questions} onExit={() => {
+    if (isSimulating && data) {
+        return <SimulationRoom questions={questions} programData={data} onExit={() => {
             setIsSimulating(false);
             // Optionally auto-trigger plan generation here
         }} />;

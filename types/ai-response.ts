@@ -77,3 +77,10 @@ export interface ComprehensiveEvaluation {
     ethics_and_policy_evaluation: EthicsAndPolicyEvaluation;
     admission_committee_simulation: AdmissionCommitteeSimulation;
 }
+
+export interface SimpleQuestion {
+    id: string;
+    category: 'Technical' | 'Motivation' | 'Behavioral' | 'Research';
+    text: string;
+    tips?: string;
+}
