@@ -1,0 +1,131 @@
+.room {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    color: #555;
+}
+
+.category {
+    background: #e3f2fd;
+    color: #0d47a1;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.exitButton {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.exitButton:hover {
+    color: #d32f2f;
+}
+
+.progressBar {
+    height: 4px;
+    background: #e0e0e0;
+    width: 100%;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.content {
+    padding: 2rem;
+}
+
+.questionText {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+.tipBox {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.textArea {
+    width: 100%;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    resize: vertical;
+}
+
+.textArea:focus {
+    outline: 2px solid var(--primary-color);
+    border-color: transparent;
+}
+
+.submitButton,
+.nextButton {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.submitButton:hover,
+.nextButton:hover {
+    background: #004494;
+}
+
+.submitButton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.feedbackSection {
+    background: #f1f8e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #c5e1a5;
+}
+
+.feedbackSection h4 {
+    margin-bottom: 0.5rem;
+    color: #2e7d32;
+}
+
+.feedbackSection p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
