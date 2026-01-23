@@ -8,7 +8,7 @@ This project simulates **real European academic interviews**, evaluates candidat
 
 ## ✨ Key Features
 
-### 🧠 Unified Interview Intelligence Engine
+### 🧠 Unified Interview Intelligence Engine system
 A single master AI agent that:
 - Evaluates interview readiness (0–100 score)
 - Simulates European faculty interview panels
