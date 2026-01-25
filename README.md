@@ -1,5 +1,7 @@
 # 🎓 EuroUni Interview Prep AI
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18368124.svg)](https://doi.org/10.5281/zenodo.18368124)
+
 An AI-powered interview preparation platform designed specifically for **European university admissions** (Bachelor’s, Master’s, and PhD programs).
 
 This project simulates **real European academic interviews**, evaluates candidate readiness, and provides structured, personalized feedback based on **European academic norms**, not generic corporate-style interviews.
@@ -90,5 +92,37 @@ Each interview produces:
 - **Version Control:** Git + GitHub
 
 ---
+
+## 📖 Citation
+
+If you use this software in academic work, educational research, or application preparation studies, please cite it as:
+
+### BibTeX
+```bibtex
+@software{daakshayani2026eurouni,
+  author  = {Daakshayani, N. S.},
+  title   = {EuroUni Interview Prep AI: AI-Based Interview Readiness and Evaluation System for European University Admissions},
+  year    = {2026},
+  version = {1.0.0},
+  doi     = {10.5281/zenodo.18368124},
+  url     = {https://github.com/Daaksh05/euro-uni-interview-prep-}
+}
+
+---
+
+APA
+
+Daakshayani, N. S. (2026). EuroUni Interview Prep AI: AI-Based Interview Readiness 
+and Evaluation System for European University Admissions (Version 1.0.0) 
+[Computer software]. https://doi.org/10.5281/zenodo.18368124
+
+---
+
+## 🎓 Academic Positioning
+
+This project is published as a citable research software artifact with a Zenodo DOI. 
+It reflects European academic norms in admissions evaluation, research alignment, 
+and communication practices, and is intended for educational, advisory, and research use.
+
 
 
