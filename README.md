@@ -97,8 +97,7 @@ Each interview produces:
 
 If you use this software in academic work, educational research, or application preparation studies, please cite it as:
 
-### BibTeX
-```bibtex
+
 @software{daakshayani2026eurouni,
   author  = {Daakshayani, N. S.},
   title   = {EuroUni Interview Prep AI: AI-Based Interview Readiness and Evaluation System for European University Admissions},
