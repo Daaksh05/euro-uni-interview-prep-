@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this content, please cite it as below."
+type: software
+title: "European University Interview Preparation Resources"
+version: 1.0.0
+date-released: 2026-01-25
+
+authors:
+  - family-names: "N S"
+    given-names: "Daakshayani"
+    affiliation: "Sri Shakthi Institute of Engineering and Technology"
+
+license: MIT
+repository-code: "https://github.com/Daaksh05/euro-uni-interview-prep-"
+url: "https://github.com/Daaksh05/euro-uni-interview-prep-"
