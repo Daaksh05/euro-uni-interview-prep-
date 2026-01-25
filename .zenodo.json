@@ -1,0 +1,30 @@
+{
+  "title": "European University Interview Preparation Resources",
+  "description": "A collection of structured preparation resources and tools designed to assist applicants in preparing for European university interviews, focusing on research projects, academic questions, and AI governance topics.",
+  "creators": [
+    {
+      "name": "Daakshayani N S",
+      "affiliation": "Sri Shakthi Institute of Engineering and Technology, Coimbatore, Tamil Nadu, India"
+    }
+  ],
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "interview preparation",
+    "European universities",
+    "AI and society",
+    "academic resources",
+    "research portfolio",
+    "technical interview"
+  ],
+  "notes": "This project provides curated interview preparation tools and question banks for European university applications and research programs.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Daaksh05/euro-uni-interview-prep-",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "language": "eng"
+}
