@@ -123,5 +123,7 @@ This project is published as a citable research software artifact with a Zenodo 
 It reflects European academic norms in admissions evaluation, research alignment, 
 and communication practices, and is intended for educational, advisory, and research use.
 
+Daakshayani N S (2025). An AI-Assisted Framework for European University Interview Preparation. International Journal of Computer Techniques, 12(6). ISSN: 2394-2231.
+
 
 
