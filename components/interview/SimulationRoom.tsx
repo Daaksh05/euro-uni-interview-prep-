@@ -5,6 +5,7 @@ import styles from './simulation.module.css';
 import { generateComprehensiveEvaluation } from '@/lib/ai/llm';
 import { ProgramData } from '@/types/program';
 import { ComprehensiveEvaluation, SimpleQuestion } from '@/types/ai-response';
+import VoiceInput from '@/components/ui/VoiceInput';
 
 interface SimulationRoomProps {
     questions: SimpleQuestion[];
@@ -43,6 +44,18 @@ export default function SimulationRoom({ questions, programData, onExit }: Simul
         try {
             const report = await generateComprehensiveEvaluation(programData, finalHistory);
             setEvaluation(report);
+
+            // Save to Database
+            await fetch('/api/analytics/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    evaluation: report,
+                    programName: programData.programName,
+                    university: programData.university
+                })
+            });
+
             setMode('report');
         } catch (e) {
             alert("Failed to generate evaluation");
@@ -131,11 +144,16 @@ export default function SimulationRoom({ questions, programData, onExit }: Simul
                 )}
 
                 <div className={styles.answerSection}>
+                    <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', alignItems: 'center' }}>
+                        <VoiceInput onTranscript={(text) => setAnswer(prev => prev + ' ' + text)} />
+                        <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontStyle: 'italic' }}>Click mic to speak answer</span>
+                    </div>
+
                     <textarea
                         className={styles.textArea}
                         value={answer}
                         onChange={(e) => setAnswer(e.target.value)}
-                        placeholder="Type your answer here..."
+                        placeholder="Type or speak your answer here..."
                     />
                     <button
                         className={styles.submitButton}

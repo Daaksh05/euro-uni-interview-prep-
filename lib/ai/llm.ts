@@ -140,6 +140,38 @@ export async function generateComprehensiveEvaluation(
     };
 }
 
+export interface SOPAnalysis {
+    score: number;
+    tone: string;
+    strengths: string[];
+    weaknesses: string[];
+    improvements: string[];
+}
+
+export async function generateSOPAnalysis(sopText: string, programName: string): Promise<SOPAnalysis> {
+    // START MOCK IMPLEMENTATION
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    return {
+        score: 72,
+        tone: "Semi-Academic",
+        strengths: [
+            "Clear passion for the subject matter.",
+            "Good structure with introduction and conclusion."
+        ],
+        weaknesses: [
+            "Includes too many generic buzzwords like 'cutting-edge'.",
+            "Lacks specific references to the university's curriculum or labs."
+        ],
+        improvements: [
+            `Explicitly mention why you chose the ${programName} program.`,
+            "Replace emotional language ('I love') with evidence-based language ('I developed').",
+            "Cite a specific professor's work to urge faculty alignment."
+        ]
+    };
+    // END MOCK IMPLEMENTATION
+}
+
 // Deprecated simple feedback - kept for compatibility if needed, but we should move to `generateComprehensiveEvaluation`
 export async function generateFeedback(conversationHistory: any[]): Promise<string> {
     return "Feedback migrated to Expert System.";

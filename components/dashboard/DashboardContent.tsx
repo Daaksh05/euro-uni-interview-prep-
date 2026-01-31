@@ -12,7 +12,7 @@ export default function DashboardContent() {
     const program = searchParams.get('program');
 
     const [data, setData] = useState<ProgramData | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [questions, setQuestions] = useState<any[]>([]);
     const [generating, setGenerating] = useState(false);
     const [isSimulating, setIsSimulating] = useState(false);
@@ -20,9 +20,13 @@ export default function DashboardContent() {
     const [generatingPlan, setGeneratingPlan] = useState(false);
 
     useEffect(() => {
-        if (!university || !program) return;
+        if (!university || !program) {
+            setLoading(false);
+            return;
+        }
 
         const fetchData = async () => {
+            setLoading(true);
             try {
                 const res = await fetch('/api/search', {
                     method: 'POST',
@@ -85,6 +89,18 @@ export default function DashboardContent() {
             setIsSimulating(false);
             // Optionally auto-trigger plan generation here
         }} />;
+    }
+
+    if (!university || !program) {
+        return (
+            <div className={styles.emptyState}>
+                <h2>No Program Selected</h2>
+                <p>Please search for a university program on the home page to start your prep.</p>
+                <a href="/" className={styles.actionButton} style={{ display: 'inline-block', marginTop: '1rem', textDecoration: 'none' }}>
+                    Go to Home
+                </a>
+            </div>
+        );
     }
 
     if (!data) return <div>No data found. Please try again.</div>;
