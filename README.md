@@ -10,86 +10,44 @@ This project simulates **real European academic interviews**, evaluates candidat
 
 ## ✨ Key Features
 
-### 🧠 Unified Interview Intelligence Engine system
-A single master AI agent that:
-- Evaluates interview readiness (0–100 score)
-- Simulates European faculty interview panels
-- Generates realistic follow-up questions
-- Provides cultural and academic communication coaching
-- Simulates an admissions committee verdict
+### 🎨 Elite Visual Overhaul
+- **Dark Glassmorphism UI**: A premium, high-contrast interface designed for focus and aesthetic excellence.
+- **Dynamic Hero Section**: Real-time program indexing stats and interactive search.
+- **Responsive Dashboard**: Unified view for program details, interview simulation, and prep plans.
 
----
-
-### 📊 Interview Readiness Score
-Candidates are evaluated on:
-- Program understanding  
-- Academic & technical depth  
-- Research / curriculum fit  
-- Motivation clarity  
-- Communication & structure  
-- European academic tone  
-
-Each interview produces:
-- Overall score
-- Detailed rubric-based breakdown
-- Strengths, weaknesses, and improvement steps
-
----
-
-### 🔬 Faculty Alignment Analyzer
-- Matches candidate profile with faculty research interests
-- Identifies best-fit professors
-- Suggests how to reference faculty work appropriately during interviews
-
----
+### 🧠 Faculty Persona Simulator
+- **Research-Aligned AI Professors**: Interactive chat with personas that probe technical depth and program fit.
+- **Live Voice Mode**: Integrated speech-to-text for hands-free interview practice.
+- **European Tone Evaluation**: Feedback on academic sobriety and evidence-based argumentation.
 
 ### 📄 SOP ↔ Interview Consistency Checker
-- Detects inconsistencies between SOP and interview answers
-- Predicts likely faculty follow-up questions
-- Flags risky or weakly supported claims
+- **SOP Analyzer**: High-fidelity analysis of Statement of Purpose for European academic norms.
+- **Claim Verification**: Predicts faculty follow-up questions based on SOP content.
+- **Risk Mitigation**: Flags weakly supported claims or over-commercialized language.
 
----
+### 📊 Progressive Performance Analytics
+- **Historical Tracking**: Monitor score trends over multiple simulations.
+- **Prisma & SQLite Backend**: Robust persistence for candidate evaluations and preparation history.
+- **Detailed Rubric Breakdown**: Insight into strengths/weaknesses across European academic dimensions.
 
-### 🎤 Live Interview Follow-Up Engine
-- Dynamically asks deeper, faculty-style follow-up questions
-- Adjusts difficulty based on candidate responses
-- Mimics real European academic interview flow
-
----
-
-### 🌍 Cultural Communication Coach
-- Detects overconfidence or marketing-style language
-- Suggests academically appropriate European phrasing
-- Helps candidates avoid cultural misalignment
-
----
-
-### ⚖️ Ethics & Policy Reasoning Evaluation
-(For AI / Data / Policy programs)
-- Evaluates awareness of GDPR and EU AI Act
-- Assesses ethical reasoning depth
-- Encourages balanced, context-aware answers
-
----
-
-### 🏛️ Admission Committee Simulator
-- Simulates a final committee decision:
-  - `strong_admit`
-  - `borderline`
-  - `reject`
-- Provides academic justification and improvement guidance
-- No false guarantees
+### 🏛️ Prestigious University Dataset
+Direct integration of English-taught programs from Europe's top institutions:
+- **France**: PSL University (Cogmaster), École Polytechnique (l'X), Sorbonne University, Paris-Saclay.
+- **Germany**: Technical University of Munich (TUM).
+- **Switzerland**: ETH Zurich.
+- **Belgium**: Vrije Universiteit Brussel (VUB).
 
 ---
 
 ## 🧩 Tech Stack
 
-- **Framework:** Next.js 16 (App Router, Turbopack)
-- **Language:** TypeScript
-- **Frontend:** React
-- **Backend:** Next.js Server Actions / API Routes
-- **AI Integration:** LLM-based structured evaluation (JSON schema)
-- **Version Control:** Git + GitHub
+- **Framework**: Next.js 15 (App Router, Turbopack)
+- **Language**: TypeScript
+- **Database**: SQLite (via Better-SQLite3)
+- **ORM**: Prisma (with dedicated Driver Adapter for Next.js 15)
+- **Styling**: Vanilla CSS with advanced Glassmorphism system
+- **AI Integration**: Structured LLM evaluation (JSON schema matching)
+- **Voice System**: Web Speech API for real-time STT
 
 ---
 
