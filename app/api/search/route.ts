@@ -15,18 +15,20 @@ export async function POST(req: NextRequest) {
         if (progInput.toLowerCase() === 'ai') searchTerms.push('Artificial Intelligence');
         if (progInput.toLowerCase() === 'cs') searchTerms.push('Computer Science');
 
+        const idMatch = uniInput.toLowerCase().replace(/\s+/g, '-');
+
         // 1. Try a more specific search first (AND)
         let programs = await prisma.program.findMany({
             where: {
                 AND: [
                     {
-                        OR: searchTerms.map(term => ({ name: { contains: term } }))
+                        OR: searchTerms.filter(t => t.length > 0).map(term => ({ name: { contains: term } }))
                     },
                     {
                         university: {
                             OR: [
                                 { name: { contains: uniInput } },
-                                { id: { contains: uniInput.toLowerCase().replace(/\s+/g, '-') } }
+                                { id: idMatch } // Try exact ID match first
                             ]
                         }
                     }
@@ -37,21 +39,21 @@ export async function POST(req: NextRequest) {
             take: 5
         });
 
-        // 2. Fallback to broad search if no specific matches
-        if (programs.length === 0) {
+        // 2. Fallback to broad search if no specific matches, but ONLY if inputs are not empty
+        if (programs.length === 0 && (uniInput || progInput)) {
             programs = await prisma.program.findMany({
                 where: {
                     OR: [
-                        { name: { contains: progInput } },
-                        {
+                        progInput ? { name: { contains: progInput } } : undefined,
+                        uniInput ? {
                             university: {
                                 OR: [
                                     { name: { contains: uniInput } },
-                                    { id: { contains: uniInput.toLowerCase().replace(/\s+/g, '-') } }
+                                    { id: { contains: idMatch } }
                                 ]
                             }
-                        }
-                    ]
+                        } : undefined
+                    ].filter(Boolean) as any
                 },
                 include: { university: true },
                 orderBy: { university: { qs_global_rank: 'asc' } },
