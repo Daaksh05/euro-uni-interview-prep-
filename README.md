@@ -9,6 +9,8 @@
   [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
   [![Prisma](https://img.shields.io/badge/Prisma-7.3.0-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+  
+  [🚀 Live Demo](https://euro-uni-interview-prep-5ye6qjk73-daaksh05s-projects.vercel.app)
 
   ---
 
@@ -38,7 +40,7 @@
 
 ### 📊 Progressive Performance Analytics
 - **Historical Tracking**: Monitor score trends over multiple simulations.
-- **Prisma & SQLite Backend**: Robust persistence for candidate evaluations and preparation history.
+- **Vercel Postgres Backend**: Robust persistence for candidate evaluations and preparation history.
 
 ### 🔐 Secure User Authentication
 - **Registration & Login**: Full credential-based authentication with bcrypt password hashing.
@@ -64,7 +66,7 @@ Direct integration of English-taught programs from Europe's top institutions acr
 ## 🧩 Tech Architecture
 Built with modern, high-performance web technologies:
 - **Framework**: Next.js 15 (App Router, Turbopack)
-- **Database**: SQLite (via Better-SQLite3)
+- **Database**: Vercel Postgres (via @prisma/adapter-pg)
 - **ORM**: Prisma (with dedicated driver adapters for high-fidelity edge performance)
 - **Styling**: Modular CSS with advanced Glassmorphism design tokens
 - **Intelligence**: Structured LLM evaluation via JSON schema matching
