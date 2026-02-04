@@ -111,7 +111,7 @@ export default function DashboardContent() {
                 <section className={styles.card}>
                     <h2>Program Snapshot</h2>
                     <div className={styles.meta}>
-                        <h3>{data.programName}</h3>
+                        <h3 style={{ color: '#fff', fontSize: '1.5rem', marginBottom: '0.5rem' }}>{data.programName}</h3>
                         <p className={styles.subtitle}>{data.university} • {data.country}</p>
                     </div>
                     <div className={styles.badgeRow}>
