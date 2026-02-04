@@ -30,12 +30,17 @@ This project simulates **real European academic interviews**, evaluates candidat
 - **Prisma & SQLite Backend**: Robust persistence for candidate evaluations and preparation history.
 - **Detailed Rubric Breakdown**: Insight into strengths/weaknesses across European academic dimensions.
 
-### 🏛️ Prestigious University Dataset
-Direct integration of English-taught programs from Europe's top institutions:
-- **France**: PSL University (Cogmaster), École Polytechnique (l'X), Sorbonne University, Paris-Saclay.
-- **Germany**: Technical University of Munich (TUM).
-- **Switzerland**: ETH Zurich.
+---
+
+## 🏛️ Integrated Institutions (Selected)
+Direct integration of English-taught programs from Europe's top institutions across 20+ countries:
+- **France**: PSL University (Cogmaster), École Polytechnique, Sorbonne, Paris-Saclay.
+- **Germany**: TUM, LMU Munich, Heidelberg, University of Bonn.
+- **Switzerland**: ETH Zurich, University of Zurich, EPFL.
+- **Netherlands**: Delft, Amsterdam (UvA), Utrecht, Leiden.
+- **Nordics**: KTH Royal Institute, Lund, Aalto, University of Helsinki.
 - **Belgium**: Vrije Universiteit Brussel (VUB).
+- **United Kingdom**: Oxford, Cambridge, Imperial College London, UCL.
 
 ---
 
