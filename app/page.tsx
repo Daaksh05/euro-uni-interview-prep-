@@ -4,14 +4,19 @@ import { prisma } from '@/lib/db';
 
 async function getStats() {
     try {
-        const count = await prisma.interviewResult.count();
+        const [interviews, universities, programs] = await Promise.all([
+            prisma.interviewResult.count(),
+            prisma.university.count(),
+            prisma.program.count()
+        ]);
         return {
-            interviews: count,
-            programs: 1200, // Static for demo
-            admitted: Math.floor(count * 0.85) // Simulate high success rate
+            interviews: interviews || 0,
+            universities: universities || 0,
+            programs: programs || 0,
+            admitted: 85 // Static high value for now
         };
     } catch (e) {
-        return { interviews: 0, programs: 1200, admitted: 0 };
+        return { interviews: 0, universities: 0, programs: 0, admitted: 0 };
     }
 }
 
@@ -40,12 +45,12 @@ export default async function Home() {
                             <span className={styles.statLabel}>Interviews Simulated</span>
                         </div>
                         <div className={styles.statCard}>
-                            <span className={styles.statNumber}>{stats.programs}</span>
-                            <span className={styles.statLabel}>Target Programs</span>
+                            <span className={styles.statNumber}>{stats.universities}</span>
+                            <span className={styles.statLabel}>Elite Universities</span>
                         </div>
                         <div className={styles.statCard}>
-                            <span className={styles.statNumber}>85%</span>
-                            <span className={styles.statLabel}>Readiness Score Avg</span>
+                            <span className={styles.statNumber}>{stats.programs}</span>
+                            <span className={styles.statLabel}>Target Programs</span>
                         </div>
                     </div>
                 </section>

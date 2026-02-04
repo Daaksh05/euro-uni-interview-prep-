@@ -28,3 +28,60 @@ model SOPSubmission {
   score      Int
   analysis   String   // Storing full analysis as string
 }
+
+model University {
+  id                    String    @id @default(cuid())
+  name                  String    @unique
+  country               String
+  qs_global_rank        Int?      // QS World Rank
+  qs_europe_rank        Int?      // QS Europe-specific Rank
+  founding_year         Int?
+  focus_areas           String    // Comma-separated list for SQLite simplicity or JSON
+  research_strengths    String    // Comma-separated list
+  faculty_count         Int?
+  international_percent Int?      // % international students
+  language_of_teaching  String    // Comma-separated list
+  website_url           String?
+  university_type       String    // "Public" | "Private" | "Mixed"
+  
+  // New fields for EU regulations
+  gdpr_compliance_note  String?   // Notes on GDPR research practices
+  eu_ai_act_aligned     Boolean?
+  
+  programs              Program[] // One-to-many relationship
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([qs_global_rank])
+  @@index([qs_europe_rank])
+  @@index([country])
+}
+
+model Program {
+  id                    String    @id @default(cuid())
+  name                  String    // e.g., "MSc Artificial Intelligence"
+  level                 String    // "Bachelor" | "Master" | "PhD"
+  field_of_study        String    // e.g., "Computer Science"
+  university_id         String
+  university            University @relation(fields: [university_id], references: [id], onDelete: Cascade)
+  
+  // Program specifics
+  duration_months       Int?
+  language              String    // e.g., "English", "German"
+  intake_month          String?   // "September", "October", etc.
+  application_deadline  DateTime?
+  
+  // European norms
+  research_focused      Boolean   @default(true)
+  thesis_required       Boolean   @default(true)
+  internship_included   Boolean   @default(false)
+  
+  faculty_advisors      String    // Comma-separated faculty names
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@unique([university_id, name, level])
+  @@index([field_of_study])
+  @@index([level])
+}

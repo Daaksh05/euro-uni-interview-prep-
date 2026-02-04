@@ -128,68 +128,102 @@ export default function DashboardContent() {
                 </section>
 
                 <section className={styles.card}>
-                    <h2>Interview Prep</h2>
-                    {questions.length === 0 ? (
-                        <>
-                            <p>Status: <strong>Ready to Generate</strong></p>
-                            <button
-                                className={styles.actionButton}
-                                onClick={handleGenerateMock}
-                                disabled={generating}
-                            >
-                                {generating ? 'Generating AI Simulation...' : 'Start Mock Interview'}
-                            </button>
-                        </>
-                    ) : (
-                        <div className={styles.questionList}>
-                            <h3>Mock Interview Ready</h3>
-                            <p>We have prepared {questions.length} tailored questions.</p>
-                            <ul style={{ marginTop: '1rem', paddingLeft: '1.2rem' }}>
-                                {questions.slice(0, 3).map((q: any) => (
-                                    <li key={q.id}>{q.text}</li>
-                                ))}
-                            </ul>
-                            <button
-                                className={styles.actionButton}
-                                style={{ marginTop: '1rem' }}
-                                onClick={() => setIsSimulating(true)}
-                            >
-                                Enter Simulation Room
-                            </button>
+                    <h2>Institution Context</h2>
+                    <div className={styles.uniProfile}>
+                        <div className={styles.rankRow}>
+                            {data.qsGlobalRank && (
+                                <div className={styles.rankItem}>
+                                    <span className={styles.rankLabel}>QS Global Rank</span>
+                                    <span className={styles.rankValue}>#{data.qsGlobalRank}</span>
+                                </div>
+                            )}
+                            {data.qsEuropeRank && (
+                                <div className={styles.rankItem}>
+                                    <span className={styles.rankLabel}>QS Europe Rank</span>
+                                    <span className={styles.rankValue}>#{data.qsEuropeRank}</span>
+                                </div>
+                            )}
                         </div>
-                    )}
-                </section>
-
-                <section className={styles.card}>
-                    <h2>Preparation Plan</h2>
-                    {!plan ? (
-                        <button
-                            className={styles.actionButton}
-                            onClick={handleGeneratePlan}
-                            disabled={generatingPlan}
-                        >
-                            {generatingPlan ? 'Drafting Schedule...' : 'Generate 2-Week Plan'}
-                        </button>
-                    ) : (
-                        <div className={styles.planList}>
-                            <p><strong>Focus:</strong> {plan.programName} ({plan.durationWeeks} weeks)</p>
-                            <div className={styles.timeline}>
-                                {plan.schedule.map((t: any) => (
-                                    <div key={t.day} className={styles.timelineItem}>
-                                        <div className={styles.dayBadge}>Day {t.day}</div>
-                                        <div className={styles.taskContent}>
-                                            <h4>{t.topic}</h4>
-                                            <p>{t.action}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                        <div className={styles.profileDetails}>
+                            <p style={{ marginBottom: '0.8rem' }}><strong>Research Strengths:</strong> {data.researchStrengths || 'Global research leadership'}</p>
+                            <p style={{ marginBottom: '0.8rem' }}><strong>Primary Focus:</strong> {data.focusAreas}</p>
+                            <div className={styles.badgeRow} style={{ marginTop: '1rem' }}>
+                                {data.gdprCompliance && (
+                                    <span className={`${styles.badge} ${styles.info}`} title={data.gdprCompliance}>GDPR Compliant</span>
+                                )}
+                                {data.euAiActAligned && (
+                                    <span className={`${styles.badge} ${styles.success}`}>EU AI Act Aligned</span>
+                                )}
+                                {data.foundingYear && (
+                                    <span className={styles.badge}>Est. {data.foundingYear}</span>
+                                )}
                             </div>
                         </div>
-                    )}
+                    </div>
                 </section>
-
-
             </div>
+
+            <section className={styles.card}>
+                <h2>Interview Prep</h2>
+                {questions.length === 0 ? (
+                    <>
+                        <p>Status: <strong>Ready to Generate</strong></p>
+                        <button
+                            className={styles.actionButton}
+                            onClick={handleGenerateMock}
+                            disabled={generating}
+                        >
+                            {generating ? 'Generating AI Simulation...' : 'Start Mock Interview'}
+                        </button>
+                    </>
+                ) : (
+                    <div className={styles.questionList}>
+                        <h3>Mock Interview Ready</h3>
+                        <p>We have prepared {questions.length} tailored questions.</p>
+                        <ul style={{ marginTop: '1rem', paddingLeft: '1.2rem' }}>
+                            {questions.slice(0, 3).map((q: any) => (
+                                <li key={q.id}>{q.text}</li>
+                            ))}
+                        </ul>
+                        <button
+                            className={styles.actionButton}
+                            style={{ marginTop: '1rem' }}
+                            onClick={() => setIsSimulating(true)}
+                        >
+                            Enter Simulation Room
+                        </button>
+                    </div>
+                )}
+            </section>
+
+            <section className={styles.card}>
+                <h2>Preparation Plan</h2>
+                {!plan ? (
+                    <button
+                        className={styles.actionButton}
+                        onClick={handleGeneratePlan}
+                        disabled={generatingPlan}
+                    >
+                        {generatingPlan ? 'Drafting Schedule...' : 'Generate 2-Week Plan'}
+                    </button>
+                ) : (
+                    <div className={styles.planList}>
+                        <p><strong>Focus:</strong> {plan.programName} ({plan.durationWeeks} weeks)</p>
+                        <div className={styles.timeline}>
+                            {plan.schedule.map((t: any) => (
+                                <div key={t.day} className={styles.timelineItem}>
+                                    <div className={styles.dayBadge}>Day {t.day}</div>
+                                    <div className={styles.taskContent}>
+                                        <h4>{t.topic}</h4>
+                                        <p>{t.action}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </section>
+
         </div>
     );
 }

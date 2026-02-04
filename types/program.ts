@@ -12,6 +12,14 @@ export interface ProgramData {
     sourceUrl?: string;
     lastUpdated?: string;
     confidenceScore: 'High' | 'Medium' | 'Low';
+    // University Metadata
+    qsGlobalRank?: number;
+    qsEuropeRank?: number;
+    researchStrengths?: string;
+    focusAreas?: string;
+    foundingYear?: number;
+    gdprCompliance?: string;
+    euAiActAligned?: boolean;
 }
 
 export interface SearchResult {
