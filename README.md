@@ -40,6 +40,11 @@
 - **Historical Tracking**: Monitor score trends over multiple simulations.
 - **Prisma & SQLite Backend**: Robust persistence for candidate evaluations and preparation history.
 
+### 🔐 Secure User Authentication
+- **Registration & Login**: Full credential-based authentication with bcrypt password hashing.
+- **Session Management**: Secure session handling via NextAuth.js (Auth.js v5).
+- **Protected Routes**: Dashboard and analytics accessible only to authenticated users.
+
 ---
 
 ## 🏛️ Integrated Institutions (Phase 1)

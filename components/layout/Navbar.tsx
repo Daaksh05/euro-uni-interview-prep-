@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSession, signOut } from 'next-auth/react';
 import styles from './navbar.module.css';
 
 export default function Navbar() {
     const pathname = usePathname();
+    const { data: session } = useSession();
 
     const isActive = (path: string) => pathname === path;
 
@@ -46,6 +48,19 @@ export default function Navbar() {
                     >
                         Analytics 📈
                     </Link>
+
+                    {session ? (
+                        <div className={styles.userSection}>
+                            <span className={styles.userName}>{session.user?.name || 'User'}</span>
+                            <button onClick={() => signOut()} className={styles.logoutBtn}>
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                        <Link href="/login" className={styles.loginBtn}>
+                            Login
+                        </Link>
+                    )}
                 </div>
             </div>
         </nav>

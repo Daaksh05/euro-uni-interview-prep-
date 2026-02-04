@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import './globals.css';
 
+import AuthProvider from '@/components/auth/AuthProvider';
+
 const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -18,8 +20,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={outfit.className}>
-                <Navbar />
-                {children}
+                <AuthProvider>
+                    <Navbar />
+                    {children}
+                </AuthProvider>
             </body>
         </html>
     );

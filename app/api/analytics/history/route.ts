@@ -1,9 +1,16 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
+import { auth } from '@/auth';
 
 export async function GET() {
+    const session = await auth();
+    if (!session?.user?.id) {
+        return NextResponse.json({ history: [] }, { status: 401 });
+    }
+
     try {
         const history = await prisma.interviewResult.findMany({
+            where: { userId: session.user.id },
             orderBy: {
                 timestamp: 'asc'
             }
