@@ -1,5 +1,6 @@
 import styles from './page.module.css';
 import SearchForm from '@/components/home/SearchForm';
+import SupportedDirectory from '@/components/home/SupportedDirectory';
 import { prisma } from '@/lib/db';
 
 async function getStats() {
@@ -62,6 +63,8 @@ export default async function Home() {
                         <SearchForm />
                     </div>
                 </section>
+
+                <SupportedDirectory />
             </div>
         </main >
     );

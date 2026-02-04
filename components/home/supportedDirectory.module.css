@@ -1,0 +1,117 @@
+.directory {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+}
+
+.directory h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.directory p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 3rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filterBtn {
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filterBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.activeFilter {
+    background: #7c4dff !important;
+    border-color: #7c4dff !important;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(124, 77, 255, 0.3);
+}
+
+.country {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #7c4dff;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.programList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.programItem {
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+.programItem:hover {
+    background: rgba(124, 77, 255, 0.1);
+}
+
+.levelBadge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-right: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
