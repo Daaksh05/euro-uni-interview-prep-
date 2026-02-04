@@ -22,8 +22,9 @@
 
 ### 🎨 Elite Visual Overhaul
 - **Dark Glassmorphism UI**: A premium, high-contrast interface designed for focus and aesthetic excellence.
-- **Dynamic Hero Section**: Real-time program indexing stats (**75+ Universities**, **50+ Programs**) with interactive search.
-- **Responsive Dashboard**: Unified view for program details, interview simulation, and institutional context.
+- **Supported Institutions Directory**: New interactive browsing section with country-based filtering.
+- **Dynamic Hero Section**: Real-time program indexing stats (**75+ Universities**, **55+ Programs**) with interactive search.
+- **Search Precision 2.0**: Enhanced matching logic with "AI/CS" keyword expansion and strict institutional mapping.
 
 ### 🧠 Faculty Persona Simulator
 - **Research-Aligned AI Professors**: Interactive chat with personas that probe technical depth and program fit.
@@ -50,9 +51,8 @@ Direct integration of English-taught programs from Europe's top institutions acr
 | **Germany** | TUM, LMU Munich, Heidelberg, University of Bonn |
 | **United Kingdom** | Oxford, Cambridge, Imperial College London, UCL |
 | **Switzerland** | ETH Zurich, University of Zurich, EPFL |
-| **Netherlands** | Delft, Amsterdam (UvA), Utrecht, Leiden |
+| **Benelux** | TU Delft, UvA Amsterdam, **Vrije Universiteit Brussel (VUB)** |
 | **Nordics** | KTH Royal Institute, Lund, Aalto, University of Helsinki |
-| **Belgium** | Vrije Universiteit Brussel (VUB) |
 
 ---
 
