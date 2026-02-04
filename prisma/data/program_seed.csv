@@ -18,6 +18,7 @@ university_name,name,level,field_of_study,duration_months,language,intake_month,
 "Vrije Universiteit Brussel (VUB)","MSc Applied Computer Science","Master","Computer Science",24,"English","September",true,true,true,"Prof. Dr. Ann Nowe,Prof. Dr. Beat Signer"
 "Sorbonne University","MSc Computational Mechanics","Master","Engineering",24,"English","September",true,true,false,"Prof. Dr. Catherine Maumi,Prof. Dr. Pierre-Louis Lions"
 "University of Paris-Saclay","MSc Bioinformatics","Master","Bioinformatics",24,"English","September",true,true,true,"Prof. Hugues Bersini,Prof. Alain Viari"
+"University of Paris-Saclay","MSc Artificial Intelligence (AI)","Master","AI",24,"English","September",true,true,true,"Prof. Dr. Jamal Atif,Prof. Dr. Celine Hudelot"
 "Ludwig Maximilians University Munich (LMU)","MSc Theoretical and Mathematical Physics","Master","Physics",24,"English","October",true,true,false,"Prof. Dr. Dieter Luest,Prof. Dr. Gia Dvali"
 "Politecnico di Milano","MSc Space Engineering","Master","Engineering",24,"English","September",true,true,true,"Prof. Franco Bernelli-Zazzera,Prof. Michèle Lavagna"
 "Università di Bologna","MSc Digital Humanities and Digital Knowledge","Master","Humanities",24,"English","September",true,true,false,"Prof. Francesca Tomasi,Prof. Fabio Vitali"

@@ -10,12 +10,17 @@ export async function POST(req: NextRequest) {
         const uniInput = (university || '').trim();
         const progInput = (program || '').trim();
 
-        // Database search with relations and aliases support
-        const programs = await prisma.program.findMany({
+        // Keyword expansion for better matching
+        const searchTerms = [progInput];
+        if (progInput.toLowerCase() === 'ai') searchTerms.push('Artificial Intelligence');
+        if (progInput.toLowerCase() === 'cs') searchTerms.push('Computer Science');
+
+        // 1. Try a more specific search first (AND)
+        let programs = await prisma.program.findMany({
             where: {
-                OR: [
+                AND: [
                     {
-                        name: { contains: progInput }
+                        OR: searchTerms.map(term => ({ name: { contains: term } }))
                     },
                     {
                         university: {
@@ -27,16 +32,32 @@ export async function POST(req: NextRequest) {
                     }
                 ]
             },
-            include: {
-                university: true
-            },
-            orderBy: {
-                university: {
-                    qs_global_rank: 'asc'
-                }
-            },
+            include: { university: true },
+            orderBy: { university: { qs_global_rank: 'asc' } },
             take: 5
         });
+
+        // 2. Fallback to broad search if no specific matches
+        if (programs.length === 0) {
+            programs = await prisma.program.findMany({
+                where: {
+                    OR: [
+                        { name: { contains: progInput } },
+                        {
+                            university: {
+                                OR: [
+                                    { name: { contains: uniInput } },
+                                    { id: { contains: uniInput.toLowerCase().replace(/\s+/g, '-') } }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                include: { university: true },
+                orderBy: { university: { qs_global_rank: 'asc' } },
+                take: 5
+            });
+        }
 
         if (programs.length > 0) {
             // Find the best match (e.g., if both uni and program match)

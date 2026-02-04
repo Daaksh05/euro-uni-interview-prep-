@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -17,40 +14,37 @@ model InterviewResult {
   overallScore Int
   toneScore    Int
   verdict      String
-  feedbackJson String   // Storing the full JSON report as a string
+  feedbackJson String
 }
 
 model SOPSubmission {
-  id         String   @id @default(uuid())
-  createdAt  DateTime @default(now())
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
   programName String
-  content    String
-  score      Int
-  analysis   String   // Storing full analysis as string
+  content     String
+  score       Int
+  analysis    String
 }
 
 model University {
   id                    String    @id @default(cuid())
   name                  String    @unique
   country               String
-  qs_global_rank        Int?      // QS World Rank
-  qs_europe_rank        Int?      // QS Europe-specific Rank
+  qs_global_rank        Int?
+  qs_europe_rank        Int?
   founding_year         Int?
-  focus_areas           String    // Comma-separated list for SQLite simplicity or JSON
-  research_strengths    String    // Comma-separated list
+  focus_areas           String
+  research_strengths    String
   faculty_count         Int?
-  international_percent Int?      // % international students
-  language_of_teaching  String    // Comma-separated list
+  international_percent Int?
+  language_of_teaching  String
   website_url           String?
-  university_type       String    // "Public" | "Private" | "Mixed"
-  
-  // New fields for EU regulations
-  gdpr_compliance_note  String?   // Notes on GDPR research practices
+  university_type       String
+  gdpr_compliance_note  String?
   eu_ai_act_aligned     Boolean?
-  
-  programs              Program[] // One-to-many relationship
   createdAt             DateTime  @default(now())
   updatedAt             DateTime  @updatedAt
+  programs              Program[]
 
   @@index([qs_global_rank])
   @@index([qs_europe_rank])
@@ -58,28 +52,22 @@ model University {
 }
 
 model Program {
-  id                    String    @id @default(cuid())
-  name                  String    // e.g., "MSc Artificial Intelligence"
-  level                 String    // "Bachelor" | "Master" | "PhD"
-  field_of_study        String    // e.g., "Computer Science"
-  university_id         String
-  university            University @relation(fields: [university_id], references: [id], onDelete: Cascade)
-  
-  // Program specifics
-  duration_months       Int?
-  language              String    // e.g., "English", "German"
-  intake_month          String?   // "September", "October", etc.
-  application_deadline  DateTime?
-  
-  // European norms
-  research_focused      Boolean   @default(true)
-  thesis_required       Boolean   @default(true)
-  internship_included   Boolean   @default(false)
-  
-  faculty_advisors      String    // Comma-separated faculty names
-  
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+  id                   String     @id @default(cuid())
+  name                 String
+  level                String
+  field_of_study       String
+  university_id        String
+  duration_months      Int?
+  language             String
+  intake_month         String?
+  application_deadline DateTime?
+  research_focused     Boolean    @default(true)
+  thesis_required      Boolean    @default(true)
+  internship_included  Boolean    @default(false)
+  faculty_advisors     String
+  createdAt            DateTime   @default(now())
+  updatedAt            DateTime   @updatedAt
+  university           University @relation(fields: [university_id], references: [id], onDelete: Cascade)
 
   @@unique([university_id, name, level])
   @@index([field_of_study])
